@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Page Title</title>
+        <title>Try Testing This</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
@@ -123,6 +123,7 @@
     
         </style>
         <script>
+
             function allowDrop(ev) {
               ev.preventDefault();
             }
@@ -136,7 +137,15 @@
               var data = ev.dataTransfer.getData("text");
               ev.target.appendChild(document.getElementById(data));
             }
+    function redirectPage(form) {
+    if (form.uname.value == 'test' && form.uname.value == 'test') {
+       window.open("login.html");
+    } else {
+      alert("Wrong Credentials, Try again")
+    } 
+  }  
             </script>
+            
             
     </head>
     <body>
@@ -187,7 +196,20 @@
               <br><br><p>This is your Sample drag and drop</p><p>Drag Pizza into the Pizza box:</p>
 
                 <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div><br>
-                <img id="drag1" src="pizza.gif" draggable="true" ondragstart="drag(event)" width="200" height="150">
+                <img id="drag1" src="pizza.gif" draggable="true" ondragstart="drag(event)" width="200" height="150">                
+                <fieldset>
+                    <legend>This is your Sample login page:</legend>
+                    <h5> Enter<br> Username:test <br> Password:test<br> to be directed to a new login page and any other value to display error message</h5>
+                <form method="POST" action="#">
+                    <div class="login form"> <label for="uname">Username:</label><br>
+                <input type="text"  id="uname" placeholder="test"name="uname" value=""> <br>
+                <label for="pwd">Password:</label><br>
+                <input type="text" id="pwd" placeholder="test" name="pwd" value=""><br><br>
+                <button class="login" onclick="redirectPage(this.form)">Login</button> 
+                </div>
+                </form>
+            </fieldset>
+
 
             </div>
 
