@@ -156,8 +156,9 @@
     if (form.uname.value == 'test' && form.uname.value == 'test') {
        window.open("login.html");
     } else {
-      (!alert("Wrong Credentials, Try again"))
-      {window.location.reload();}
+        if(confirm("Wrong Credentials, Please try again ! ")){
+    window.open("index.html","_self");  
+}
     } 
   }  
             </script>
