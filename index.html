@@ -117,8 +117,14 @@
                                 }
 
 /* Show the tooltip text when you mouse over the tooltip container */
-                        .tooltip:hover .tooltiptext {
+                    .tooltip:hover .tooltiptext {
                             visibility: visible;}
+/* Scroll bar to frames */                            
+                    div.ex1 {
+                                height: 1000px;
+                                overflow: scroll;
+                            }
+                            
                         
     
         </style>
@@ -137,11 +143,22 @@
               var data = ev.dataTransfer.getData("text");
               ev.target.appendChild(document.getElementById(data));
             }
+            function alertfunction() {
+                  var txt;
+                  if (confirm("Press a button!")) {
+                    txt = "You Pressed the OK Button!";
+                  } else {
+                    txt = "You pressed the Cancel Button!";
+                  }
+                  document.getElementById("demo").innerHTML = txt;
+                }
     function redirectPage(form) {
     if (form.uname.value == 'test' && form.uname.value == 'test') {
        window.open("login.html");
     } else {
-      alert("Wrong Credentials, Try again")
+      alert("Wrong Credentials, Try again");
+        window.location,href = "index.html";
+
     } 
   }  
             </script>
@@ -159,25 +176,13 @@
             <a href="contact.html" class="button bar-item" >Contact</a>
             <a href="index.html" class="button bar-item"  >Home</a>
         </div>
-        <div class="row">
-            <div class="side">
+        <div class="row" >
+            <div class="side  ex1">
               <h2>This is your layout one</h2>
               <div class="pop-up-alert">
                 <button onclick="alertfunction()"> Your Sample Alert Button!</button>
                 
                 <p id="demo"></p>
-                
-                <script>
-                function alertfunction() {
-                  var txt;
-                  if (confirm("Press a button!")) {
-                    txt = "You Pressed the OK Button!";
-                  } else {
-                    txt = "You pressed the Cancel Button!";
-                  }
-                  document.getElementById("demo").innerHTML = txt;
-                }
-                </script>
                 </div>
                 <div class="tooltip"> This is your Sample Tooltip Option
                 <span class="tooltiptext">This is your sample Tooltip text</span>
@@ -238,7 +243,10 @@
                   <option value="option 2">Option 2</option>
                   <option value="option 3">Option 3</option>
                 </select><br><br>
+                <p>Lets you select multiple options</p>
                 <select name="Optionwithcheck[]" id="owc" multiple="owc">
+                    
+                    <label for="option">Choose multiple options:</label><br>
                     <option value="option">Option</option>
                     <option value="option 1">Option 1</option>
                     <option value="option 2">Option 2</option>
@@ -248,11 +256,11 @@
 
                 <label for="option">Choose applicable options:</label><br>
                 <input type="checkbox" id="moption" name="option1" value="Option 1">
-                <label for="moption"> I have a bike</label><br>
+                <label for="moption"> Option 1</label><br>
                 <input type="checkbox" id="moption" name="option2" value="Option 2">
-                <label for="moption"> I have a car</label><br>
+                <label for="moption"> Option 2</label><br>
                 <input type="checkbox" id="moption" name="option3" value="Option 3">
-                <label for="moption"> I have a boat</label>
+                <label for="moption"> Option 3</label>
                 <br><br><label for="datalists">Start typing and it till automatically guess answer:</label><br>
                 <input list="datalists" name="Options">
                 <datalist id="datalists">
