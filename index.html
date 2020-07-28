@@ -152,14 +152,26 @@
                   }
                   document.getElementById("demo").innerHTML = txt;
                 }
-    function redirectPage(form) {
-    if (form.uname.value == 'test' && form.uname.value == 'test') {
-       window.open("login.html");
-    } else {
-      alert("Wrong Credentials, Try again")
 
-
-    } 
+                function wrong() {
+                  
+                  if (confirm("Wrong Credentials! Try again!")) {
+                    location.reload()
+                  } else {
+                    location.reload()
+                  }}
+                  
+   
+  function openLoginPage(uname,pwd){
+    
+    if (uname.value == 'test' && pwd.value == 'test') {
+      window.open("login.html","_self");
+      return true;
+    }else{
+       wrong()
+      return false;
+      
+    }
   }  
             </script>
             
@@ -205,14 +217,15 @@
                 <fieldset>
                     <legend>This is your Sample login page:</legend>
                     <h5> Enter<br> Username:test <br> Password:test<br> to be directed to a new login page and any other value to display error message</h5>
-                <form method="POST" action="#">
-                    <div class="login form"> <label for="uname">Username:</label><br>
-                <input type="text"  id="uname" placeholder="test"name="uname" value=""> <br>
-                <label for="pwd">Password:</label><br>
-                <input type="text" id="pwd" placeholder="test" name="pwd" value=""><br><br>
-                <button class="login" onclick="redirectPage(this.form)">Login</button> 
-                </div>
-                </form>
+
+                <form action="login.html" onsubmit="return openLoginPage(uname,pwd)" method="POST"  >
+                  <div class="login form"> <label for="uname">Username:</label><br>
+              <input type="text"  id="uname" placeholder="test" name="uname" value=""> <br>
+              <label for="pwd">Password:</label><br>
+              <input type="text" id="pwd" placeholder="test" name="pwd" value=""><br><br>
+              <input  type="submit" value="Login"></input> 
+              </div>
+              </form>
             </fieldset>
 
 
